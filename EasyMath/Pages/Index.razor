@@ -1,0 +1,40 @@
+﻿@page "/"
+
+<div align="center" style="padding-top: 50px">
+    <p>
+        Primer Numero: <input id="Number1" type="number" step=0.01 @bind-value="PrimerNum" />
+    </p>
+    <p style="padding-top: 5px">
+        Segundo Numero: <input id="Number2" type="number" step=0.01 @bind-value="SegundoNum" />
+    </p>
+
+    <button style="padding-top: 10px" class="btn btn-primary" @onclick="Calcular">Calcular</button>
+
+    <p style="padding-top: 5px">
+        La suma es: @Suma
+    </p>
+    <p style="padding-top: 5px">
+        La Resta es: @Resta
+    </p>
+    <p style="padding-top: 5px">
+        La Multiplicacion es: @Multiplicacion
+    </p>
+</div>
+
+@code {
+    private float PrimerNum;
+    private float SegundoNum;
+    private float Suma;
+    private float Resta;
+    private float Multiplicacion;
+
+    private void Calcular()
+    {
+        Suma = PrimerNum + SegundoNum;
+        Resta = PrimerNum - SegundoNum;
+        Multiplicacion = PrimerNum * SegundoNum;
+
+        if (Multiplicacion == -0)
+            Multiplicacion = 0;
+    }
+}
